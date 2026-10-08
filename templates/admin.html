@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ negocio }} - Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="admin">
+
+  <header class="toldo">
+    <div class="toldo-barra">
+      <div>
+        <h1>Kiosko Pelon</h1>
+        <p>Panel del negocio</p>
+      </div>
+      <nav class="toldo-acciones">
+        <a class="btn-texto claro" href="{{ url_for('tienda') }}" target="_blank" rel="noopener">Ver tienda</a>
+        <a class="btn-texto claro" href="{{ url_for('logout') }}">Cerrar sesión</a>
+      </nav>
+    </div>
+    <div class="rayas" aria-hidden="true"></div>
+  </header>
+
+  <main class="admin-contenido">
+
+    <div class="tabs" role="tablist">
+      <button class="tab activo" type="button" data-vista="pedidos">Pedidos <span id="badge-pendientes" class="badge" hidden>0</span></button>
+      <button class="tab" type="button" data-vista="productos">Productos</button>
+      <button class="tab" type="button" data-vista="historial">Historial</button>
+    </div>
+
+    <!-- ===================== PEDIDOS ===================== -->
+    <section id="vista-pedidos" class="vista">
+      <div class="stats">
+        <div class="stat"><span class="stat-num" id="st-pedidos">0</span><span>Pedidos de hoy</span></div>
+        <div class="stat"><span class="stat-num" id="st-ventas">$0</span><span>Ventas de hoy</span></div>
+        <div class="stat"><span class="stat-num" id="st-pendientes">0</span><span>Pendientes ahora</span></div>
+      </div>
+
+      <p class="ayuda">La pantalla se actualiza sola cada 3 segundos. Hacé un clic en cualquier parte de la página para activar el sonido de aviso.</p>
+
+      <div class="kanban">
+        <div class="columna" data-col="pendiente">
+          <h2>Pendientes <span class="cuenta" id="cuenta-pendiente">0</span></h2>
+          <div class="columna-lista" id="col-pendiente"></div>
+        </div>
+        <div class="columna" data-col="en_preparacion">
+          <h2>En preparación <span class="cuenta" id="cuenta-en_preparacion">0</span></h2>
+          <div class="columna-lista" id="col-en_preparacion"></div>
+        </div>
+        <div class="columna" data-col="listo">
+          <h2>Listos para retirar <span class="cuenta" id="cuenta-listo">0</span></h2>
+          <div class="columna-lista" id="col-listo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRODUCTOS ===================== -->
+    <section id="vista-productos" class="vista" hidden>
+      <form id="form-producto" class="panel form-producto">
+        <h2 id="form-titulo">Agregar producto</h2>
+        <div class="form-grilla">
+          <div>
+            <label for="p-nombre">Nombre</label>
+            <input id="p-nombre" type="text" maxlength="60" required>
+          </div>
+          <div>
+            <label for="p-categoria">Categoría</label>
+            <input id="p-categoria" type="text" maxlength="30" list="lista-categorias" placeholder="Ej: Bebidas">
+            <datalist id="lista-categorias"></datalist>
+          </div>
+          <div>
+            <label for="p-precio">Precio ($)</label>
+            <input id="p-precio" type="number" min="0" step="1" required>
+          </div>
+          <div>
+            <label for="p-stock">Stock</label>
+            <input id="p-stock" type="number" min="0" step="1" required>
+          </div>
+        </div>
+        <label class="check"><input id="p-disponible" type="checkbox" checked> Visible en la tienda</label>
+        <p id="p-mensaje" class="mensaje" role="alert" hidden></p>
+        <div class="form-botones">
+          <button id="p-guardar" class="btn btn-primario" type="submit">Guardar producto</button>
+          <button id="p-cancelar" class="btn btn-secundario" type="button" hidden>Cancelar edición</button>
+        </div>
+      </form>
+
+      <div class="tabla-caja">
+        <table class="tabla">
+          <thead>
+            <tr><th>Producto</th><th>Categoría</th><th class="der">Precio</th><th class="der">Stock</th><th>Visible</th><th></th></tr>
+          </thead>
+          <tbody id="tabla-productos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== HISTORIAL ===================== -->
+    <section id="vista-historial" class="vista" hidden>
+      <div class="historial-barra">
+        <label for="filtro-estado">Mostrar</label>
+        <select id="filtro-estado">
+          <option value="todos">Todos los pedidos</option>
+          <option value="entregado">Entregados</option>
+          <option value="cancelado">Cancelados</option>
+          <option value="pendiente">Pendientes</option>
+          <option value="en_preparacion">En preparación</option>
+          <option value="listo">Listos</option>
+        </select>
+      </div>
+      <div class="tabla-caja">
+        <table class="tabla">
+          <thead>
+            <tr><th>N.º</th><th>Fecha</th><th>Cliente</th><th>Detalle</th><th class="der">Total</th><th>Estado</th></tr>
+          </thead>
+          <tbody id="tabla-historial"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

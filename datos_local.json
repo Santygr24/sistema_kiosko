@@ -1,0 +1,191 @@
+{
+  "productos": [
+    {
+      "nombre": "Alfajor triple",
+      "precio": 3500,
+      "categoria": "Golosinas",
+      "stock": 40,
+      "disponible": true,
+      "id": "89006257"
+    },
+    {
+      "nombre": "Chocolate con leche",
+      "precio": 1800,
+      "categoria": "Golosinas",
+      "stock": 25,
+      "disponible": true,
+      "id": "ed66d56e"
+    },
+    {
+      "nombre": "Caramelos surtidos (x10)",
+      "precio": 500,
+      "categoria": "Golosinas",
+      "stock": 60,
+      "disponible": true,
+      "id": "25769822"
+    },
+    {
+      "nombre": "Coca Cola 500 ml",
+      "precio": 3000,
+      "categoria": "Bebidas",
+      "stock": 28,
+      "disponible": true,
+      "id": "856b56db"
+    },
+    {
+      "nombre": "Agua mineral 500 ml",
+      "precio": 2500,
+      "categoria": "Bebidas",
+      "stock": 29,
+      "disponible": true,
+      "id": "9ea53ae3"
+    },
+    {
+      "nombre": "Jugo Tang",
+      "precio": 500,
+      "categoria": "Bebidas",
+      "stock": 18,
+      "disponible": true,
+      "id": "66c2f437"
+    },
+    {
+      "nombre": "Papas fritas",
+      "precio": 4000,
+      "categoria": "Snacks",
+      "stock": 18,
+      "disponible": true,
+      "id": "4d6aaff7"
+    },
+    {
+      "nombre": "Palitos salados",
+      "precio": 2000,
+      "categoria": "Snacks",
+      "stock": 18,
+      "disponible": true,
+      "id": "9d46d630"
+    },
+    {
+      "nombre": "Sándwich de miga (x3)",
+      "precio": 4000,
+      "categoria": "Comidas",
+      "stock": 9,
+      "disponible": true,
+      "id": "17ddb87a"
+    },
+    {
+      "nombre": "Tostado de jamón y queso",
+      "precio": 3200,
+      "categoria": "Comidas",
+      "stock": 9,
+      "disponible": true,
+      "id": "35aa4741"
+    },
+    {
+      "nombre": "Café",
+      "precio": 1300,
+      "categoria": "Calientes",
+      "stock": 50,
+      "disponible": true,
+      "id": "edb9e77d"
+    },
+    {
+      "nombre": "Medialuna",
+      "precio": 1500,
+      "categoria": "Calientes",
+      "stock": 23,
+      "disponible": true,
+      "id": "0e6e06e4"
+    }
+  ],
+  "pedidos": [
+    {
+      "cliente": "Pelon",
+      "nota": "pelao",
+      "items": [
+        {
+          "id": "66c2f437",
+          "nombre": "Jugo Tang",
+          "precio": 500,
+          "cantidad": 1
+        },
+        {
+          "id": "856b56db",
+          "nombre": "Coca Cola 500 ml",
+          "precio": 3000,
+          "cantidad": 1
+        }
+      ],
+      "total": 3500,
+      "estado": "entregado",
+      "fecha": "2026-10-08T13:47:23",
+      "numero": 1,
+      "id": "3899506eac",
+      "actualizado": "2026-10-08T13:47:40"
+    },
+    {
+      "cliente": "nazareno",
+      "nota": "para llevar",
+      "items": [
+        {
+          "id": "856b56db",
+          "nombre": "Coca Cola 500 ml",
+          "precio": 3000,
+          "cantidad": 1
+        },
+        {
+          "id": "17ddb87a",
+          "nombre": "Sándwich de miga (x3)",
+          "precio": 4000,
+          "cantidad": 1
+        },
+        {
+          "id": "0e6e06e4",
+          "nombre": "Medialuna",
+          "precio": 1500,
+          "cantidad": 1
+        },
+        {
+          "id": "9ea53ae3",
+          "nombre": "Agua mineral 500 ml",
+          "precio": 2500,
+          "cantidad": 1
+        },
+        {
+          "id": "35aa4741",
+          "nombre": "Tostado de jamón y queso",
+          "precio": 3200,
+          "cantidad": 1
+        }
+      ],
+      "total": 14200,
+      "estado": "pendiente",
+      "fecha": "2026-10-08T13:55:29",
+      "numero": 2,
+      "id": "9e3ced504d"
+    },
+    {
+      "cliente": "assasassa",
+      "nota": "",
+      "items": [
+        {
+          "id": "66c2f437",
+          "nombre": "Jugo Tang",
+          "precio": 500,
+          "cantidad": 1
+        },
+        {
+          "id": "17ddb87a",
+          "nombre": "Sándwich de miga (x3)",
+          "precio": 4000,
+          "cantidad": 2
+        }
+      ],
+      "total": 8500,
+      "estado": "pendiente",
+      "fecha": "2026-10-08T13:57:22",
+      "numero": 3,
+      "id": "455f1333b1"
+    }
+  ],
+  "contador": 3
+}

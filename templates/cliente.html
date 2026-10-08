@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ negocio }} - Hacé tu pedido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <header class="toldo">
+    <div class="toldo-barra">
+      <div>
+        <h1>Kiosko Pelon</h1>
+        <p>Armá tu pedido desde acá y lo preparamos.</p>
+      </div>
+    </div>
+    <div class="rayas" aria-hidden="true"></div>
+  </header>
+
+  <main class="tienda">
+
+    <section class="menu" aria-label="Productos">
+      <div class="herramientas">
+        <input id="buscador" type="search" placeholder="Buscar un producto" aria-label="Buscar un producto">
+        <div id="categorias" class="chips" role="tablist" aria-label="Categorías"></div>
+      </div>
+      <div id="productos" class="grilla-productos"></div>
+    </section>
+
+    <aside class="lateral" aria-label="Tu pedido">
+
+      <section id="seguimiento" class="panel seguimiento" hidden>
+        <div class="seguimiento-cabecera">
+          <h2 id="seg-titulo">Tu pedido</h2>
+          <button id="seg-cerrar" class="btn-texto" type="button">Cerrar</button>
+        </div>
+        <p id="seg-mensaje" class="seg-mensaje"></p>
+        <ol id="seg-pasos" class="pasos"></ol>
+      </section>
+
+      <section class="panel">
+        <h2>Tu pedido</h2>
+        <ul id="carrito-lista" class="carrito-lista"></ul>
+        <p id="carrito-vacio" class="vacio">Todavía no agregaste nada. Elegí productos del menú.</p>
+
+        <div class="total-fila">
+          <span>Total</span>
+          <strong id="carrito-total">$0</strong>
+        </div>
+
+        <label for="cliente">Tu nombre</label>
+        <input id="cliente" type="text" maxlength="50" placeholder="Ej: Lucas">
+
+        <label for="nota">Aclaraciones (opcional)</label>
+        <textarea id="nota" maxlength="200" rows="2" placeholder="Ej: sin hielo, para llevar"></textarea>
+
+        <p id="mensaje" class="mensaje" role="alert" hidden></p>
+        <button id="btn-enviar" class="btn btn-primario btn-ancho" type="button">Enviar pedido</button>
+      </section>
+
+    </aside>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/cliente.js') }}"></script>
+</body>
+</html>
